@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: social-feed-postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: social_feed_user
+      POSTGRES_PASSWORD: social_feed_password
+      POSTGRES_DB: social_feed_db
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
