@@ -5,6 +5,13 @@ import { PrismaService } from '../prisma/prisma.service';
 @Injectable()
 export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
+  // findByEmailOrThrow(email: string) {
+  //   return this.prisma.user.findUniqueOrThrow({
+  //     where: {
+  //       email,
+  //     },
+  //   });
+  // }
   findByEmail(email: string) {
     return this.prisma.user.findUnique({
       where: {

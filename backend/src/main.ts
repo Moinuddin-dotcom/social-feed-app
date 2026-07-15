@@ -28,7 +28,14 @@ async function bootstrap() {
     .setTitle('Social Feed API')
     .setDescription('Social Feed Assignment API')
     .setVersion('1.0')
-    .addBearerAuth()
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+      'JWT',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
